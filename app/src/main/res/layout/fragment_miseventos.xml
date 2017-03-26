@@ -1,0 +1,211 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.enriquebecerram.partyapp.InvitacionesFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/LayoutNuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnNuevoEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuevo Evento"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/element3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LayoutNuevo"
+        >
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imageView3"
+            android:layout_margin="30dp"/>
+
+        <TextView
+            android:id="@+id/txtEvento3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView3"
+            android:layout_marginTop="20dp"
+            android:text="Nombre del evento"/>
+
+        <TextView
+            android:id="@+id/txtCreador3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView3"
+            android:layout_below="@id/txtEvento3"
+            android:layout_marginTop="5dp"
+            android:text="Creador del evento"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFecha3"
+            android:text="10/03/2017"
+            android:layout_toRightOf="@id/txtEvento3"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnVer3"
+            android:text="Ver"
+            android:layout_below="@id/txtCreador3"
+            android:layout_toRightOf="@id/imageView3"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRechazar3"
+            android:text="Rechazar"
+            android:layout_below="@id/txtCreador3"
+            android:layout_toRightOf="@id/btnVer3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/element4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/element3">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imageView4"
+            android:layout_margin="30dp"/>
+
+        <TextView
+            android:id="@+id/txtEvento4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView4"
+            android:layout_marginTop="20dp"
+            android:text="Nombre del evento"/>
+
+        <TextView
+            android:id="@+id/txtCreador4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView4"
+            android:layout_below="@id/txtEvento4"
+            android:layout_marginTop="5dp"
+            android:text="Creador del evento"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFecha4"
+            android:text="10/03/2017"
+            android:layout_toRightOf="@id/txtEvento4"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnVer4"
+            android:text="Ver"
+            android:layout_below="@id/txtCreador4"
+            android:layout_toRightOf="@id/imageView4"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRechazar4"
+            android:text="Rechazar"
+            android:layout_below="@id/txtCreador4"
+            android:layout_toRightOf="@id/btnVer4"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/element5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/element4">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imageView5"
+            android:layout_margin="30dp"/>
+
+        <TextView
+            android:id="@+id/txtEvento5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView5"
+            android:layout_marginTop="20dp"
+            android:text="Nombre del evento"/>
+
+        <TextView
+            android:id="@+id/txtCreador5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView5"
+            android:layout_below="@id/txtEvento5"
+            android:layout_marginTop="5dp"
+            android:text="Creador del evento"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFecha5"
+            android:text="10/03/2017"
+            android:layout_toRightOf="@id/txtEvento5"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnVer5"
+            android:text="Ver"
+            android:layout_below="@id/txtCreador5"
+            android:layout_toRightOf="@id/imageView5"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRechazar5"
+            android:text="Rechazar"
+            android:layout_below="@id/txtCreador5"
+            android:layout_toRightOf="@id/btnVer5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            />
+    </RelativeLayout>
+
+    </RelativeLayout>
+</FrameLayout>

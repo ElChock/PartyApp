@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.enriquebecerram.partyapp.MainActivity"
+    android:background="@drawable/fiesta2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!" />
+
+            <Button
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":D"
+                android:id="@+id/btnCarita"/>-->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rechazar"
+                android:id="@+id/btnDetalleRechazar"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="70dp"/>
+
+            <RelativeLayout
+                android:id="@+id/Layout0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnDetalleRechazar"
+                android:background="#f2f2f2">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Layout1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDetalleFecha"
+                        android:text="10 de marzo"
+                        android:textSize="25sp"
+                        android:layout_margin="10dp"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Layout2"
+                    android:layout_toRightOf="@+id/Layout1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDetalleNombre"
+                        android:text="Fiestòn mexicano"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDetallePrivato"
+                        android:text="Privado"
+                        android:textSize="20sp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/txtDetalleNombre"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/Layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Layout0"
+                android:background="#f2f2f2">
+
+                <TextView
+                    android:id="@+id/txtDestalleDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Vengan todos a comer tacos a mi casa weyes"
+                    android:textSize="20sp"
+                    android:layout_margin="10dp"/>
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/Layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Layout3"
+                android:background="#f2f2f2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Participantes"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"/>
+
+                <ImageView
+                    android:id="@+id/ImageDetallePersona1"
+                    app:srcCompat="@drawable/persona1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="25dp">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ImageDetallePersona2"
+                    app:srcCompat="@drawable/persona2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/ImageDetallePersona1">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ImageDetallePersona3"
+                    app:srcCompat="@drawable/persona3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/ImageDetallePersona2">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ImageDetallePersona4"
+                    app:srcCompat="@drawable/persona4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/ImageDetallePersona3">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/ImageDetalleMas"
+                    app:srcCompat="@drawable/galeria_mas"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/ImageDetallePersona4">
+                </ImageView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Layout4"
+                android:background="#f2f2f2">
+
+                <TextView
+                    android:id="@+id/txtRequisitos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Necesito..."
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/Layout5_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtRequisitos"
+                    android:background="#f2f2f2">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Layout5_2">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDetalleProducto1"
+                            android:text="Botanas"
+                            android:textSize="25sp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Layout5_3"
+                        android:layout_toRightOf="@+id/Layout5_2">
+
+                        <ImageView
+                            android:id="@+id/ImagenDetalleProducto1"
+                            app:srcCompat="@drawable/persona1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="25dp">
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/ImageDetalleProductomas1"
+                            app:srcCompat="@drawable/galeria_mas"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/ImagenDetalleProducto1">
+                        </ImageView>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="Llevar"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Layout5_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Layout5_1"
+                    android:background="#f2f2f2">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Layout5_5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDetalleProducto2"
+                            android:text="Frutsis"
+                            android:textSize="25sp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Layout5_6"
+                        android:layout_toRightOf="@+id/Layout5_5">
+
+                        <ImageView
+                            android:id="@+id/ImagenDetalleProducto2"
+                            app:srcCompat="@drawable/persona3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="40dp">
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/ImageDetalleProductomas2"
+                            app:srcCompat="@drawable/galeria_mas"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/ImagenDetalleProducto2">
+                        </ImageView>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="Llevar"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/Layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mas..."
+                android:background="#f2f2f2"
+                android:layout_marginTop="460dp"
+                android:gravity="center" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Layout6">
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>
