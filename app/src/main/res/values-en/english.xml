@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PartyApp</string>
+    <string name="Correo">correo</string>
+    <string name="Contraseña">contraseña</string>
+    <string name="nombre">nombre</string>
+    <string name="registrar">registrar</string>
+    <string name="sexo">sexo</string>
+    <string name="avatar">avatar</string>
+    <string name="title_activity_principal">Principal</string>
+</resources>
