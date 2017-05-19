@@ -92,4 +92,10 @@
         android:text="Agregar Mapa"
         android:layout_centerHorizontal="true"/>
 
+    <com.google.android.gms.maps.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mapView2"
+        />
+
 </RelativeLayout>

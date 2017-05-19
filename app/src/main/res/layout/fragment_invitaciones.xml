@@ -78,6 +78,13 @@
                 android:layout_height="40dp"
                 android:background="@drawable/button_shape"
                 />
+            <com.facebook.share.widget.ShareButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shareFB"
+                android:layout_below="@+id/btnVer"
+                android:layout_alignLeft="@+id/imageView"
+                android:layout_alignStart="@+id/imageView" />
         </RelativeLayout>
 
     </RelativeLayout>
