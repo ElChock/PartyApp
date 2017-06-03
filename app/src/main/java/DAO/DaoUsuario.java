@@ -98,6 +98,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
             //el tipo de dato que le vamos a mandar.
             conn.setRequestMethod( "POST" );
             conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+           // conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.boundary);
 
             //recomienda enviar el peso de lo que enviaremos.
             conn.setFixedLengthStreamingMode(postParams.getBytes().length);
