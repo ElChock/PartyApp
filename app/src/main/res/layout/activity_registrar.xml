@@ -3,6 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_margin="10px"
+        android:id="@+id/image"/>
     <EditText
         android:layout_width="200dp"
         android:layout_height="42dp"
@@ -11,7 +16,8 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtUsuarioRegistro"
-        android:background="@drawable/textbox_shape"/>
+        android:background="@drawable/textbox_shape"
+        />
     <EditText
         android:layout_width="200dp"
         android:layout_height="42dp"
@@ -20,7 +26,9 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtCorreoRegistro"
-        android:background="@drawable/textbox_shape"/>
+        android:background="@drawable/textbox_shape"
+        android:inputType="textEmailAddress"/>
+
     <EditText
         android:layout_width="200dp"
         android:layout_height="42dp"
@@ -29,7 +37,10 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtContraseñaRegistro"
-        android:background="@drawable/textbox_shape"/>
+        android:background="@drawable/textbox_shape"
+        android:password="true"
+        />
+
     <EditText
         android:layout_width="200dp"
         android:layout_height="42dp"
@@ -37,17 +48,40 @@
         android:hint="@string/Contraseña"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:id="@+id/txtContraseñaRegistro"
-        android:background="@drawable/textbox_shape"/>
-    <EditText
+        android:id="@+id/txtContraseñaRegistro2"
+        android:background="@drawable/textbox_shape"
+        android:password="true"/>
+
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:layout_width="200dp"
+                android:layout_height="42dp"
+                android:hint="@string/Femenino"
+                android:id="@+id/rdbFemenino"
+                android:onClick="onRadioButtonClicled"/>
+            <RadioButton
+                android:layout_width="200dp"
+                android:layout_height="42dp"
+                android:hint="@string/masculino"
+                android:id="@+id/rdbMasculino"
+                android:onClick="onRadioButtonClicled"/>
+        </RadioGroup>
+
+    <Button
+        android:id="@+id/btnImagen"
+        android:layout_below="@id/txtContrasenia"
+        style="@style/StyleButton"
+        android:text="@string/galeria"
+
         android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textSize="20dp"
-        android:hint="@string/Contraseña"
-        android:gravity="center"
+        android:layout_height="40dp"
+
         android:layout_centerHorizontal="true"
-        android:id="@+id/txtContraseñaRegistro"
-        android:background="@drawable/textbox_shape"/>
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/btnRegistrar"

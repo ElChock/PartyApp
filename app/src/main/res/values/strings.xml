@@ -18,6 +18,9 @@
 
     <string name="sexo">sexo</string>
     <string name="avatar">avatar</string>
+    <string name="galeria">galeria</string>
+    <string name="masculino">Masculino</string>
+    <string name="Femenino">Femenino</string>
 
     <string name="SERVER_PATH"> http:// 32.209.73.120/PartyApp</string>
     <string name="TIMEOUT">10000</string>
