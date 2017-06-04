@@ -6,4 +6,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">931971393611579</string>
+    <string name="title_activity_maps">Map</string>
+
+
+
+    <string name="Correo">correo</string>
+    <string name="Contraseña">contraseña</string>
+    <string name="nombre">nombre</string>
+    <string name="registrar">registrar</string>
+
+    <string name="sexo">sexo</string>
+    <string name="avatar">avatar</string>
+
+    <string name="SERVER_PATH"> http:// 32.209.73.120/PartyApp</string>
+    <string name="TIMEOUT">10000</string>
+
 </resources>
