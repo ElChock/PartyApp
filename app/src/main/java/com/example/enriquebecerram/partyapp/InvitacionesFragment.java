@@ -27,6 +27,7 @@ public class InvitacionesFragment extends Fragment {
     com.facebook.share.widget.ShareButton btnShare;
     Button share2;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

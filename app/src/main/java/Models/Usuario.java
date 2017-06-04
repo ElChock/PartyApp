@@ -1,5 +1,7 @@
 package Models;
 
+import android.graphics.Bitmap;
+
 import com.google.gson.Gson;
 
 /**
@@ -7,6 +9,37 @@ import com.google.gson.Gson;
  */
 
 public class Usuario {
+
+
+    public Usuario(String nombre, String correo, String contraseña, String genero, String avatar) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contraseña = contraseña;
+        this.genero = genero;
+        this.avatar = avatar;
+    }
+
+    public Usuario(int idUsuario, String nickName, String nombre, String correo, String contraseña, String genero, Bitmap image) {
+        this.idUsuario = idUsuario;
+        this.nickName = nickName;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contraseña = contraseña;
+        this.genero = genero;
+        this.image = image;
+    }
+
+    public Usuario(int idUsuario, String nickName, String nombre, String correo, String contraseña, String genero, String avatar, Bitmap image) {
+        this.idUsuario = idUsuario;
+        this.nickName = nickName;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contraseña = contraseña;
+        this.genero = genero;
+        this.avatar = avatar;
+        this.image = image;
+    }
+
     int idUsuario;
     String nickName;
     String nombre;
@@ -14,6 +47,7 @@ public class Usuario {
     String contraseña;
     String genero;
     String avatar;
+    Bitmap image;
 
     public Usuario(String nickName, String correo, String contraseña) {
         this.nickName = nickName;

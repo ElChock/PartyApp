@@ -8,4 +8,7 @@
     <string name="sexo">sexo</string>
     <string name="avatar">avatar</string>
     <string name="title_activity_principal">Principal</string>
+    <string name="galeria">galeria</string>
+    <string name="masculino">Masculino</string>
+    <string name="Femenino">Femenino</string>
 </resources>

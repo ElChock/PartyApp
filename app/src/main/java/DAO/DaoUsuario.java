@@ -2,6 +2,7 @@ package DAO;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -11,6 +12,7 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,6 +22,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import Models.Usuario;
+
+import static android.R.attr.bitmap;
 
 /**
  * Created by Ayrton on 09/05/2017.
@@ -31,6 +35,8 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
 
     Context m_context;
     ProgressDialog m_progressDialog;
+    String boundary =  "*****";
+
 
     public DaoUsuario(Context m_context) {
         this.m_context = m_context;
@@ -79,7 +85,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
         // ejemplo UTF-8.
 
 
-        String postParams = "&AgregarUsuario=true&nombre="+user.getNombre()+"&correo="+user.getCorreo()+"&contrasenia="+user.getContraseña()+"&sexo=Masculino&avatar=qwe&nick=yaJalo";
+        String postParams = "&AgregarUsuario=true&nombre="+user.getNombre()+"&correo="+user.getCorreo()+"&contrasenia="+user.getContraseña()+"&sexo="+user.getGenero()+"&avatar=qwe&nick=1";
 
         URL url=null;
         //Controla la informacion con la cual podemos enviar y recivir datos del servidor
@@ -97,8 +103,9 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
             conn.setDoOutput(true);
             //el tipo de dato que le vamos a mandar.
             conn.setRequestMethod( "POST" );
-            conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-           // conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.boundary);
+
+            ////
+            ////
 
             //recomienda enviar el peso de lo que enviaremos.
             conn.setFixedLengthStreamingMode(postParams.getBytes().length);
