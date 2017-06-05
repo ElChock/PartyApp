@@ -1,56 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="250px"
-        android:layout_height="250px"
-        android:layout_margin="10px"
-        android:id="@+id/image"/>
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textSize="20dp"
-        android:hint="@string/nombre"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtUsuarioRegistro"
-        android:background="@drawable/textbox_shape"
-        />
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textSize="20dp"
-        android:hint="@string/Correo"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtCorreoRegistro"
-        android:background="@drawable/textbox_shape"
-        android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textSize="20dp"
-        android:hint="@string/Contraseña"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtContraseñaRegistro"
-        android:background="@drawable/textbox_shape"
-        android:password="true"
-        />
+        <ImageView
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_margin="10px"
+            android:id="@+id/image"/>
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:textSize="20dp"
+            android:hint="@string/nombre"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtUsuarioRegistro"
+            android:background="@drawable/textbox_shape"
+            />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:textSize="20dp"
+            android:hint="@string/Nickname"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtNicknameRegistro"
+            android:background="@drawable/textbox_shape"
+            />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:textSize="20dp"
+            android:hint="@string/Correo"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtCorreoRegistro"
+            android:background="@drawable/textbox_shape"
+            android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textSize="20dp"
-        android:hint="@string/Contraseña"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/txtContraseñaRegistro2"
-        android:background="@drawable/textbox_shape"
-        android:password="true"/>
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:textSize="20dp"
+            android:hint="@string/Contraseña"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtContraseñaRegistro"
+            android:background="@drawable/textbox_shape"
+            android:password="true"
+            />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="42dp"
+            android:textSize="20dp"
+            android:hint="@string/Contraseña"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txtContraseñaRegistro2"
+            android:background="@drawable/textbox_shape"
+            android:password="true"/>
 
 
         <RadioGroup
@@ -62,38 +74,39 @@
                 android:layout_height="42dp"
                 android:hint="@string/Femenino"
                 android:id="@+id/rdbFemenino"
-                android:onClick="onRadioButtonClicled"/>
+                android:onClick="onRadioButtonClicked"/>
+
             <RadioButton
                 android:layout_width="200dp"
                 android:layout_height="42dp"
                 android:hint="@string/masculino"
                 android:id="@+id/rdbMasculino"
-                android:onClick="onRadioButtonClicled"/>
+                android:onClick="onRadioButtonClicked"/>
         </RadioGroup>
 
-    <Button
-        android:id="@+id/btnImagen"
-        android:layout_below="@id/txtContrasenia"
-        style="@style/StyleButton"
-        android:text="@string/galeria"
+        <Button
+            android:id="@+id/btnImagen"
+            android:layout_below="@id/txtContrasenia"
+            style="@style/StyleButton"
+            android:text="@string/galeria"
 
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
 
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_below="@id/txtContrasenia"
-        style="@style/StyleButton"
-        android:text="@string/registrar"
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_below="@id/txtContrasenia"
+            style="@style/StyleButton"
+            android:text="@string/registrar"
 
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
 
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
 
 </LinearLayout>

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import Models.Usuario;
 
 import static android.R.attr.bitmap;
+import static android.R.attr.id;
 
 /**
  * Created by Ayrton on 09/05/2017.
@@ -85,7 +88,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
         // ejemplo UTF-8.
 
 
-        String postParams = "&AgregarUsuario=true&nombre="+user.getNombre()+"&correo="+user.getCorreo()+"&contrasenia="+user.getContraseña()+"&sexo="+user.getGenero()+"&avatar=qwe&nick=1";
+        String postParams = "&AgregarUsuario=true&nombre="+user.getNombre()+"&correo="+user.getCorreo()+"&contrasenia="+user.getContraseña()+"&sexo="+user.getGenero()+"&avatar=qwe&nick="+user.getNickName();
 
         URL url=null;
         //Controla la informacion con la cual podemos enviar y recivir datos del servidor
@@ -104,14 +107,12 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
             //el tipo de dato que le vamos a mandar.
             conn.setRequestMethod( "POST" );
 
-            ////
-            ////
-
             //recomienda enviar el peso de lo que enviaremos.
             conn.setFixedLengthStreamingMode(postParams.getBytes().length);
 
             //nos da un stream de datos para comenzar a escribir en el lo que escriba se lo envia al servidor.
             OutputStream out= new BufferedOutputStream(conn.getOutputStream());
+
             out.write(postParams.getBytes(StandardCharsets.UTF_8));
             out.flush();
             out.close();
@@ -124,7 +125,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
 
             try {
                 JSONObject jsonObject= new JSONObject(responseString);
-                int errorCode = jsonObject.getInt("error_code");
+                //int errorCode = jsonObject.getInt("error_code");
                 int insertId= jsonObject.getInt("idUsuario");
                 String nickname= jsonObject.getString("nick");
                 String nombre = jsonObject.getString("nombreUsuario");
@@ -132,7 +133,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
                 user.setIdUsuario(insertId);
                 user.setNickName(nickname);
                 user.setNombre(nombre);
-
+                user.setAvatar(responseString);
 
             }catch (JSONException e){
                 e.printStackTrace();
@@ -146,7 +147,8 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
     }
     public Usuario LogIn(Usuario usuario)
     {
-        String postParams = "&action=signup&userJson="+usuario.toJSON();
+        Usuario user = new Usuario();
+        String postParams = "&Login=true&correo="+usuario.getCorreo()+"&contrasenia="+ usuario.getContraseña();
 
         URL url=null;
         //Controla la informacion con la cual podemos enviar y recivir datos del servidor
@@ -182,13 +184,26 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
             String responseString= inputStreamToString(in);
 
             try {
-                JSONObject jsonObject= new JSONObject(responseString);
-                int errorCode = jsonObject.getInt("error_code");
-                int insertId= jsonObject.getInt("id");
+                JSONObject jsonObject = new JSONObject(responseString);
 
-                usuario.setIdUsuario(insertId);
+                int insertId = jsonObject.getInt("idUsuario");
+                String nickname = jsonObject.getString("nick");
+                String nombre = jsonObject.getString("nombreUsuario");
+                int idUsuario = jsonObject.getInt("idUsuario");
+                String correo = jsonObject.getString("correo");
+                String genero = jsonObject.getString("genero");
+                String avatar = jsonObject.getString("avatar");
+
+                user.setAvatar(avatar);
+                user.setNombre(nombre);
+                user.setNickName(nickname);
+                user.setIdUsuario(idUsuario);
+                user.setCorreo(correo);
+                user.setGenero(genero );
+
 
             }catch (JSONException e){
+                Toast.makeText(m_context,responseString, Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
 
@@ -196,7 +211,7 @@ public class DaoUsuario extends AsyncTask<Object, Integer, Object> {
         {
             e.printStackTrace();
         }
-        return usuario;
+        return user;
     }
 
     // Metodo que lee un String desde un InputStream (Convertimos el InputStream del servidor en un String)

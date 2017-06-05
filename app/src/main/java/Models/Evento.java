@@ -10,18 +10,42 @@ import java.util.Date;
 
 public class Evento {
 
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public Evento(int idEvento, String nombre, String lugarLa, String lugarLo, String descripcion, String fecha, String fechaCreacion, int privado, String imagenPath, int idCreador, String lugar) {
+        this.idEvento = idEvento;
+        this.nombre = nombre;
+        this.lugarLa = lugarLa;
+        this.lugarLo = lugarLo;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.fechaCreacion = fechaCreacion;
+        this.privado = privado;
+        this.imagenPath = imagenPath;
+        this.idCreador = idCreador;
+        this.lugar = lugar;
+    }
+
     int idEvento;
     String nombre;
     String lugarLa;
     String lugarLo;
     String descripcion;
-    Date fecha;
-    Date fechaCreacion;
+    String fecha;
+    String fechaCreacion;
     int privado;
     String imagenPath;
     int idCreador;
+    String lugar;
 
-    public Evento(int idEvento, String nombre, String lugarLa, String lugarLo, String descripcion, Date fecha, Date fechaCreacion, int privado, String imagenPath, int idCreador) {
+    public Evento(int idEvento, String nombre, String lugarLa, String lugarLo, String descripcion, String fecha, String fechaCreacion, int privado, String imagenPath, int idCreador) {
         this.idEvento = idEvento;
         this.nombre = nombre;
         this.lugarLa = lugarLa;
@@ -78,19 +102,19 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Date getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 

@@ -14,7 +14,7 @@
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre del evento: "
+        android:text="@string/nombreEvento"
         android:textSize="18sp" />
 
     <EditText
@@ -25,35 +25,15 @@
         android:layout_alignBaseline="@id/txtNombre"
         android:layout_toRightOf="@+id/txtNombre"/>
 
-    <TextView
-        android:id="@+id/txtFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fecha: "
-        android:textSize="18sp"
-        android:layout_marginTop="35dp"
-        android:layout_below="@id/txtNombre"/>
-
 
     <TextView
-        android:id="@+id/txtLugar"
+        android:text="@string/descipcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lugar: "
-        android:textSize="18sp"
-        android:layout_marginTop="35dp"
-        android:layout_below="@id/txtFecha"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignBaseline="@+id/txtFecha"
-        android:layout_alignBottom="@+id/txtFecha"
-        android:layout_alignRight="@+id/editNombre"
-        android:layout_alignEnd="@+id/editNombre" />
+        android:id="@+id/textView"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/editLugar"
+        android:layout_alignLeft="@+id/datePicker" />
 
     <EditText
         android:id="@+id/editLugar"
@@ -61,41 +41,74 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/txtLugar"
         android:layout_alignBottom="@+id/txtLugar"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignRight="@+id/datePicker" />
 
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/txtLugar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/txtLugar"
+        android:text="@string/lugar"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/editNombre"
+        android:layout_alignLeft="@+id/textView" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_below="@+id/editDescripcion"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/Radios">
-        <RadioButton android:id="@+id/radio_pirates"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Publica"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_ninjas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Privada"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
+        android:layout_above="@+id/Radios" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Radios"
-        android:text="Agregar Mapa"
-        android:layout_centerHorizontal="true"/>
+        android:text="@string/mapa"
+        android:id="@+id/btnMapa"
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-    <com.google.android.gms.maps.MapView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mapView2"
-        />
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Radios"
+        android:layout_marginBottom="32dp"
+        android:layout_above="@+id/btnMapa"
+        android:layout_alignParentLeft="true">
+        <RadioButton android:id="@+id/radio_pirates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/publica"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radio_ninjas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privada"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        android:text="@string/crearEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:id="@+id/btnCrearEvento" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editDescripcion"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignRight="@+id/editNombre" />
+
 
 </RelativeLayout>
