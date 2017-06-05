@@ -11,4 +11,13 @@
     <string name="galeria">galeria</string>
     <string name="masculino">Masculino</string>
     <string name="Femenino">Femenino</string>
+    <string name="Nickname">NickName</string>
+    <string name="nombreEvento">Nombre del evento</string>
+    <string name="descipcion">Descripcion</string>
+    <string name="fecha">Fecha</string>
+    <string name="lugar">Lugar</string>
+    <string name="publica">Publica</string>
+    <string name="privada">Privada</string>
+    <string name="mapa">Agregar mapa</string>
+    <string name="guardar">Guardar</string>
 </resources>

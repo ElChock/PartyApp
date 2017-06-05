@@ -9,7 +9,13 @@ import com.google.gson.Gson;
  */
 
 public class Usuario {
+    public Usuario() {
 
+    }
+    public Usuario(String contraseña, String correo) {
+        this.contraseña = contraseña;
+        this.correo = correo;
+    }
 
     public Usuario(String nombre, String correo, String contraseña, String genero, String avatar) {
         this.nombre = nombre;

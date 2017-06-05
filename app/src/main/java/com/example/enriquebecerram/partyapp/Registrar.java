@@ -37,9 +37,11 @@ import Models.Usuario;
 public class Registrar extends AppCompatActivity {
 
     String genero;
+    TextView txtNombre;
     TextView txtNickname;
     TextView txtCorreo;
     TextView txtContraseña;
+    TextView txtContraseña2;
     Button btnRegistrar;
     Button btnAlbum;
     ImageView imageView;
@@ -72,18 +74,23 @@ public class Registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        txtNickname = (TextView) findViewById(R.id.txtUsuarioRegistro);
+        txtNombre = (TextView) findViewById(R.id.txtUsuarioRegistro);
         txtCorreo = (TextView) findViewById(R.id.txtCorreoRegistro);
         txtContraseña = (TextView) findViewById(R.id.txtContraseñaRegistro);
+        txtContraseña2 = (TextView) findViewById(R.id.txtContraseñaRegistro2);
         btnRegistrar =(Button) findViewById(R.id.btnRegistrar);
         btnAlbum=(Button) findViewById(R.id.btnImagen);
         imageView=(ImageView) findViewById(R.id.image);
+        txtNickname=(TextView) findViewById(R.id.txtNicknameRegistro);
 
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Usuario usuario = new Usuario(txtNickname.getText().toString(),txtCorreo.getText().toString(),txtContraseña.getText().toString(),genero,imageUri.toString());
+
+            if(txtContraseña.getText().toString()==txtContraseña2.getText().toString()){
+
+                Usuario usuario = new Usuario(1,txtNombre.getText().toString(),txtNickname.getText().toString(),txtCorreo.getText().toString(),txtContraseña.getText().toString(),genero,txtNickname.getText().toString(),null);
                 DaoUsuario daoUsuario= new DaoUsuario(Registrar.this);
                 daoUsuario.execute("signup", usuario, new NetCallback() {
                     @Override
@@ -93,19 +100,20 @@ public class Registrar extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                /*if (signUPUser.getId()!=0){
-                                    showToast("Cuenta Creada");
-                                    Intent intent= new Intent(Registrar.this, ImageActivity.class);
-                                    startActivity(intent);
-                                }else{
-                                    showToast("Usuario ya Existe");
-                                }*/
 
-                                Toast.makeText(getApplicationContext(), signUPUser.toJSON(), Toast.LENGTH_LONG).show();
+                                if(signUPUser.getIdUsuario()!=0){
+                                    Intent InvokePrincipal = new Intent(Registrar.this, Principal.class);
+                                    startActivity(InvokePrincipal);
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Error al crear Usuario", Toast.LENGTH_LONG).show();
+                                }
+                                //Toast.makeText(getApplicationContext(), signUPUser.toJSON(), Toast.LENGTH_LONG).show();
                             }
                         });
                     }
                 });
+            }
+
             }
         });
 
