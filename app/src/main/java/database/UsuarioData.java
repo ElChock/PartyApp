@@ -81,7 +81,7 @@ public class UsuarioData extends SQLHelper  {
         SQLiteDatabase db=getWritableDatabase();
 
         String where=sColumnID + "=" + idContact;
-        Cursor c = db.query(sTableName,null,where,null,null,null,null);
+        Cursor c = db.query(sTableName,null,null,null,null,null,null);
         if (c.moveToFirst()){
             int idUsuario=c.getInt((c.getColumnIndex("idUsuario")));
             String nickname=c.getString((c.getColumnIndex("nickName")));

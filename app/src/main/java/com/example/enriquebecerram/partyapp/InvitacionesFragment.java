@@ -19,6 +19,13 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
+
+import DAO.DaoEvento;
+import DAO.NetCallback;
+import Models.Evento;
+
+import static com.google.android.gms.internal.zzir.runOnUiThread;
 
 public class InvitacionesFragment extends Fragment {
 
@@ -26,7 +33,7 @@ public class InvitacionesFragment extends Fragment {
     private ShareDialog shareDialog;
     com.facebook.share.widget.ShareButton btnShare;
     Button share2;
-
+    List<Evento> eventoList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,6 +94,22 @@ public class InvitacionesFragment extends Fragment {
 
             }
         });
+        Evento evento = new Evento();
+        DaoEvento daoevento = new DaoEvento(getContext());
+        daoevento.execute("getEventosPublicos", evento, new NetCallback() {
+            @Override
+            public void onWorkFinish(Object data) {
+                 eventoList = (List<Evento>) data;
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), eventoList.get(0).getNombre(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
 
         return v;
     }
@@ -119,9 +142,6 @@ public class InvitacionesFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == getActivity().RESULT_OK){
-
-
-
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             sharePhotoToFacebook(thumbnail);

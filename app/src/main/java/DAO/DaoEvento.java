@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.enriquebecerram.partyapp.R;
 
@@ -25,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import Models.Evento;
 
@@ -34,7 +36,7 @@ import Models.Evento;
 
 public class DaoEvento extends AsyncTask<Object, Integer, Object> {
 
-    static final String SERVER_PATH = "http:// 32.209.73.120/PartyApp";
+    static final String SERVER_PATH = "http://shotingstars.tk/PartyApp/index.php";
     static final int TIMEOUT = 10000;
 
     Context m_context;
@@ -54,10 +56,14 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
             // Llamamos a nuestro callback
             NetCallback netCallback = (NetCallback) objects[2];
             netCallback.onWorkFinish(signupUser);
-        } else if(action.equals("creteEvento")){
+        } else if(action.equals("createEvento")){
             Evento evento =CreateEvento((Evento)objects[1]);
             NetCallback netCallback = (NetCallback) objects[2];
             netCallback.onWorkFinish(evento);
+        }else if(action.equals("getEventosPublicos")){
+            List<Evento> eventoList = getEventos();
+            NetCallback netCallback = (NetCallback)objects[2];
+            netCallback.onWorkFinish(eventoList);
         }
         return null;
     }
@@ -101,7 +107,7 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
             try {
 
                 JSONObject jsonObject= new JSONObject(responseString);
-                int errorCode = jsonObject.getInt("error_code");
+                //int errorCode = jsonObject.getInt("error_code");
                 int idEvento = jsonObject.getInt("idEvento");
                 String nombreEvento= jsonObject.getString("nombreEvento");
                 String lugarLa= jsonObject.getString("lugarLa");
@@ -125,7 +131,7 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                //event = new Evento(idEvento,nombreEvento,lugarLa, lugarLo,descripcion,fechaDate,fechaCreacionDate,privado,imagenPath,idCreador);
+                event = new Evento(idEvento,nombreEvento,lugarLa, lugarLo,descripcion,fechaDate.toString(),fechaCreacionDate.toString(),privado,imagenPath,idCreador);
 
 
 
@@ -140,7 +146,7 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
         return event;
     }
     public List<Evento> getEventos(){
-        String postParams = "&action=getEventos";
+        String postParams = "&CargarEventosPublicos=true";
         List<Evento> listEvento = new ArrayList<Evento>();
 
         Evento event= new Evento();
@@ -182,22 +188,21 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
                 JSONArray jsonArray = new JSONArray(responseString);
                 for (int i=0;i<jsonArray.length();i++){
                     JSONObject obj = jsonArray.getJSONObject(i); //0 for just retrieving first object you can loop it
-                    String myVehicleID = obj.getString("vehicleId"); //To retrieve vehicleId
-
-                    int errorCode = obj.getInt("error_code");
+                    //int errorCode = obj.getInt("error_code");
                     int idEvento = obj.getInt("idEvento");
                     String nombreEvento= obj.getString("nombreEvento");
-                    String lugarLa= obj.getString("lugarLa");
-                    String lugarLo= obj.getString("lugarLo");
+                    String lugar = obj.getString("lugar");
+                    String lugarLa= obj.getString("latitud");
+                    String lugarLo= obj.getString("longitud");
                     String descripcion= obj.getString("descripcion");
                     int privado= obj.getInt("privado");
-                    String imagenPath= obj.getString("imagenPath");
+                    String imagenPath= obj.getString("imagen");
                     int idCreador= obj.getInt("idCreador");
 
 
                     String fecha = obj.getString("fecha");
                     String fechaCreacion = obj.getString("fechaCreacion");
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
                     Date fechaDate= new Date();
                     Date fechaCreacionDate= new Date();
                     try {
@@ -208,7 +213,7 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                    event = new Evento(idEvento,nombreEvento,lugarLa, lugarLo,descripcion,fechaDate,fechaCreacionDate,privado,imagenPath,idCreador);
+                    event = new Evento(idEvento,nombreEvento,lugarLa, lugarLo,descripcion,fechaDate.toString(),fechaCreacionDate.toString(),privado,imagenPath,idCreador);
                     listEvento.add(event);
                 }
 
@@ -216,10 +221,6 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
 
             } catch (JSONException e) {
                 e.printStackTrace();
-
-
-
-
             }
 
         }catch (Exception e) {
@@ -229,9 +230,9 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
     }
     public Evento CreateEvento(Evento evento){
 
-              String postParams = "&AgregarEvento=true&lugar="+evento.getLugar()+"&descripcion="+evento.getDescripcion()+
+              String postParams = "&AgregarEvento=true&nombreEvento="+evento.getNombre()+"&lugar="+evento.getLugar()+"&descripcion="+evento.getDescripcion()+
               "&fecha="+evento.getFecha()+"&privado="+evento.getPrivado()+"&idCreador="+evento.getIdCreador()+
-              "&longitud="+evento.getLugarLo()+"&latitu="+evento.getLugarLa();
+              "&longitud="+evento.getLugarLo()+"&latitud="+evento.getLugarLa();
 
         URL url=null;
         //Controla la informacion con la cual podemos enviar y recivir datos del servidor
@@ -265,6 +266,7 @@ public class DaoEvento extends AsyncTask<Object, Integer, Object> {
             InputStream in = new BufferedInputStream(conn.getInputStream());
             String responseString= inputStreamToString(in);
             JSONObject jsonObject= new JSONObject(responseString);
+            Toast.makeText(m_context, jsonObject.toString(), Toast.LENGTH_SHORT).show();
 
         }catch (Exception e)
         {

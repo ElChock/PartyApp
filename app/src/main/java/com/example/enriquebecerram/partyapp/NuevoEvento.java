@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Date;
 
+import DAO.DaoEvento;
+import DAO.NetCallback;
 import Models.Evento;
 import database.UsuarioData;
 
@@ -71,14 +74,31 @@ public class NuevoEvento extends AppCompatActivity {
         btnCrearEvento.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Evento evento = new Evento();
+                final Evento evento = new Evento();
                 evento.setNombre(txtNombre.getText().toString());
                 evento.setDescripcion(txtDescripcion.getText().toString());
                 evento.setLugar(txtLugar.getText().toString());
-                evento.setLugarLa(String.valueOf( latitude));
-                evento.setLugarLo(String.valueOf( longitude));
-                evento.setFecha(datePicker.toString());
+                evento.setLugarLa(String.valueOf(latitude));
+                evento.setLugarLo(String.valueOf(longitude));
+                evento.setFecha(datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth());
                 evento.setIdCreador(new UsuarioData(NuevoEvento.this).getContact(1).getIdUsuario());
+
+                DaoEvento daoevento = new DaoEvento(NuevoEvento.this);
+                daoevento.execute("createEvento", evento, new NetCallback() {
+                    @Override
+                    public void onWorkFinish(Object data) {
+                        final Evento createEvento = (Evento) data;
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                finish();
+                                //if(evento)
+                               // Toast.makeText(getApplicationContext(), createEvento.toJSON(), Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                });
             }
         });
 
@@ -98,5 +118,23 @@ public class NuevoEvento extends AppCompatActivity {
 
             }
         });*/
+    }
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioPublica:
+                if (checked)
+                    EventoPublico=0;
+                // Pirates are the best
+                break;
+            case R.id.radioPrivada:
+                if (checked)
+                    EventoPublico=1;
+                // Ninjas rule
+                break;
+        }
     }
 }

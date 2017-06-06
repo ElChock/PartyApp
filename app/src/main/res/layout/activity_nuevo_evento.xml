@@ -79,12 +79,12 @@
         android:layout_marginBottom="32dp"
         android:layout_above="@+id/btnMapa"
         android:layout_alignParentLeft="true">
-        <RadioButton android:id="@+id/radio_pirates"
+        <RadioButton android:id="@+id/radioPublica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/publica"
             android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_ninjas"
+        <RadioButton android:id="@+id/radioPrivada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/privada"
