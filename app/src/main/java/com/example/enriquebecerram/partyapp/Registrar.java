@@ -88,7 +88,7 @@ public class Registrar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            if(txtContraseña.getText().toString()==txtContraseña2.getText().toString()){
+            if(txtContraseña.getText().toString().equals(txtContraseña2.getText().toString())){
 
                 Usuario usuario = new Usuario(1,txtNombre.getText().toString(),txtNickname.getText().toString(),txtCorreo.getText().toString(),txtContraseña.getText().toString(),genero,txtNickname.getText().toString(),null);
                 DaoUsuario daoUsuario= new DaoUsuario(Registrar.this);

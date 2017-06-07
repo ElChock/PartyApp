@@ -30,6 +30,7 @@ public class eventoAdapter extends ArrayAdapter<Evento> {
         super(context, resource, objects);
     }
 
+
     ImageView image;
     TextView txtnombreEvento;
     TextView txtCreador;
@@ -54,7 +55,7 @@ public class eventoAdapter extends ArrayAdapter<Evento> {
         txtFecha=(TextView) convertView.findViewById(R.id.txtFecha);
         txtidEvento=(TextView) convertView.findViewById(R.id.txtIdEvento);
 
-        Evento evento=getItem(position);
+        final Evento evento=getItem(position);
         bindData(evento);
 
         //evento.setNombre(txtnombreEvento.getText().toString());
@@ -63,6 +64,7 @@ public class eventoAdapter extends ArrayAdapter<Evento> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.putExtra("evento",evento.toJSON());
                 //Intent intent = new Intent(getApplicationContext(), Login.class);
                 //Intent intent = new Intent(this, MainActivity.class);
                 getContext().startActivity(intent);
