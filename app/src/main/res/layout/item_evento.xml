@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/element"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imageView"
+            android:layout_margin="30dp"/>
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtIdEvento"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txtEvento"
+            style="@style/StyleText"
+            android:layout_toRightOf="@id/imageView"
+            android:layout_marginTop="20dp"
+            android:text="Nombre del evento" />
+
+        <TextView
+            android:id="@+id/txtCreador"
+            style="@style/StyleText"
+            android:layout_toRightOf="@id/imageView"
+            android:layout_below="@id/txtEvento"
+            android:layout_marginTop="5dp"
+            android:text="Creador del evento"/>
+
+        <TextView
+            style="@style/StyleText"
+            android:id="@+id/txtFecha"
+            android:text="10/03/2017"
+            android:layout_toRightOf="@id/txtEvento"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:id="@+id/btnVer"
+            style="@style/StyleButton"
+            android:text="Ver"
+
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+
+            android:layout_below="@id/txtCreador"
+            android:layout_toRightOf="@id/imageView"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnRechazar"
+            android:text="Rechazar"
+            android:layout_below="@id/txtCreador"
+            android:layout_toRightOf="@id/btnVer"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+
+            android:textColor="#FFFFFF"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_shape"
+            />
+    </RelativeLayout>
+</LinearLayout>

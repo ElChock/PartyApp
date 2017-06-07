@@ -20,6 +20,7 @@
             android:id="@+id/txtUsuarioRegistro"
             android:background="@drawable/textbox_shape"
             />
+
         <EditText
             android:layout_width="200dp"
             android:layout_height="42dp"
@@ -30,6 +31,7 @@
             android:id="@+id/txtNicknameRegistro"
             android:background="@drawable/textbox_shape"
             />
+
         <EditText
             android:layout_width="200dp"
             android:layout_height="42dp"

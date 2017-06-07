@@ -10,7 +10,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.facebook.share.model.ShareLinkContent;
@@ -19,8 +21,10 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
+import Adapter.eventoAdapter;
 import DAO.DaoEvento;
 import DAO.NetCallback;
 import Models.Evento;
@@ -32,79 +36,38 @@ public class InvitacionesFragment extends Fragment {
     Button btnVer;
     private ShareDialog shareDialog;
     com.facebook.share.widget.ShareButton btnShare;
-    Button share2;
+    Button btnRechazar;
     List<Evento> eventoList;
+    ListView listView;
+    List<Evento> listArrayEventos= new ArrayList<Evento>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         shareDialog = new ShareDialog(this);
-
-
-
         View v = inflater.inflate(R.layout.fragment_invitaciones, container, false);
 
-        Button btnVer = (Button)v.findViewById(R.id.btnVer);
-        btnShare =(com.facebook.share.widget.ShareButton ) v.findViewById(R.id.shareFB);
-        share2=(Button) v.findViewById(R.id.btnRechazar);
 
+        //btnVer = (Button)v.findViewById(R.id.btnVer);
+        //btnShare =(com.facebook.share.widget.ShareButton ) v.findViewById(R.id.shareFB);
+        //btnRechazar=(Button) v.findViewById(R.id.btnRechazar);
+        listView=(ListView) v.findViewById(R.id.listView);
 
-
-
-        btnVer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                //Intent intent = new Intent(getApplicationContext(), Login.class);
-                //Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        share2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
-
-                //ShareLinkContent content = new ShareLinkContent.Builder().build();
-
-
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
-                    startActivityForResult(intent, 1);
-                }
-
-            }
-        });
-        btnShare.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
-
-                //ShareLinkContent content = new ShareLinkContent.Builder().build();
-
-
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
-                    startActivityForResult(intent, 1);
-                }
-
-
-
-            }
-        });
         Evento evento = new Evento();
         DaoEvento daoevento = new DaoEvento(getContext());
         daoevento.execute("getEventosPublicos", evento, new NetCallback() {
             @Override
             public void onWorkFinish(Object data) {
                  eventoList = (List<Evento>) data;
-
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+
                         Toast.makeText(getContext(), eventoList.get(0).getNombre(), Toast.LENGTH_SHORT).show();
+                        listArrayEventos.addAll(eventoList);
+                        ArrayAdapter<Evento> listViewAdapter = new eventoAdapter(getActivity(),android.R.layout.simple_list_item_1,listArrayEventos);
+                        listView.setAdapter(listViewAdapter);
 
                     }
                 });

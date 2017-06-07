@@ -34,7 +34,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
 
-        android:background="@drawable/textbox_shape"/>
+        android:background="@drawable/textbox_shape"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/txtContrasenia"
@@ -49,7 +50,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
 
-        android:background="@drawable/textbox_shape"/>
+        android:background="@drawable/textbox_shape"
+        />
 
     <Button
         android:id="@+id/btnLogin"
